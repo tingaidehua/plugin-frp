@@ -1,4 +1,10 @@
-# dsh-frp 国产化与踩坑
+# plugin-frp 国产化与踩坑
+
+## 共享 SQLite（plugin-ops-store）
+
+- 租约/通知/审计进 SQLite；`FRP_TOKEN` / `FRP_SERVER_ADDR` 只进 `~/.env`
+- sticky：同一 `client_id + local_port` 重连复用原 `remote_port`
+- 未安装 store 时 `frp_connect_egress` 会明确报错（或你手动传 `remotePort`）
 
 ## 国内下载 frp 二进制
 
@@ -17,7 +23,7 @@
 
 - **禁止**默认重写 token（其他 Linux/Windows 隧道会瞬间全断）
 - `frp.install_server` 发现文件即 `action=adopted`
-- 客户端写到 `~/.config/dsh-frp/`，proxy 名必须以 `dsh-frp-` 开头
+- 客户端写到 `~/.config/plugin-frp/`，proxy 名必须以 `plugin-frp-` 开头
 
 ## 版本陷阱
 

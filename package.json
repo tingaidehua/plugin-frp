@@ -1,7 +1,7 @@
 {
-  "name": "dsh-frp",
-  "version": "0.1.0",
-  "description": "DeepSeek Harness plugin: adopt/install frps on server, install/configure frpc on clients. Does not overwrite existing frps token or foreign tunnels.",
+  "name": "plugin-frp",
+  "version": "0.2.0",
+  "description": "DSH frp egress: sticky ports via plugin-ops-store SQLite, credentials from user env (never hardcoded), frpc autostart.",
   "type": "module",
   "main": "index.js",
   "files": [
@@ -9,10 +9,11 @@
     "lib/**",
     "cordis.patch.yml",
     "vendor/**",
-    "README.md"
+    "README.md",
+    "docs/**"
   ],
   "keywords": [
-    "dsh-plugin",
+    "agent-plugin",
     "frp",
     "frps",
     "frpc"

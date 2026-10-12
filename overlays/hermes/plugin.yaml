@@ -1,0 +1,17 @@
+name: plugin-frp
+version: "0.2.0"
+description: >-
+  FRP egress for intranet agents (sticky remote ports via plugin-ops-store).
+  Native runtime is DeepSeek Harness (DSH); this overlay registers the same tools for Hermes.
+provides_tools:
+  - frp_configure
+  - frp_status
+  - frp_connect_egress
+  - frp_disconnect
+  - frp_list_online
+  - frp_enable_autostart
+  - frp_install_server
+  - frp_install_client
+  - frp_write_client_config
+  - frp_start_client
+  - frp_stop_client
