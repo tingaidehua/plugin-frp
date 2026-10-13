@@ -25,7 +25,7 @@
 - 路径：`/var/lib/plugin-ops/ops.sqlite`（或 `PLUGIN_OPS_DB`）
 - 表：`frp_leases` / `frp_events` / `notifications` / `kv` / `ops_audit`
 - **不存** token；只存租约与运维状态
-- 插件并列安装：`/opt/dsh-ops/plugin-ops-store` + `/opt/dsh-ops/plugin-frp`
+- 插件并列安装：`/opt/agent-plugins/plugin-ops-store` + `/opt/agent-plugins/plugin-frp`
 
 ## 推荐会话流（给另一个内网智能体）
 

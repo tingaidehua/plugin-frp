@@ -6,7 +6,28 @@ import os
 import subprocess
 from pathlib import Path
 
-PLUGIN_ROOT = Path(__file__).resolve().parents[2]
+def _plugin_root() -> Path:
+    here = Path(__file__).resolve().parent
+    # Normal layout: <pkg>/overlays/hermes/__init__.py
+    cand = here.parents[1]
+    if (cand / "bin" / "invoke.mjs").exists():
+        return cand
+    env = os.environ.get("PLUGIN_FRP_ROOT")
+    if env and (Path(env) / "bin" / "invoke.mjs").exists():
+        return Path(env)
+    # Hermes junction of overlay-only → sibling workspace package
+    for p in (
+        Path(r"C:\workspace\agent-plugins\plugin-frp"),
+        Path.home() / "workspace" / "dsh-ops" / "plugin-frp",
+        Path("/opt/agent-plugins/plugin-frp"),
+        Path("/opt/plugin-ops/plugin-frp"),
+    ):
+        if (p / "bin" / "invoke.mjs").exists():
+            return p
+    return cand
+
+
+PLUGIN_ROOT = _plugin_root()
 INVOKE = PLUGIN_ROOT / "bin" / "invoke.mjs"
 
 
